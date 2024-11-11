@@ -67,18 +67,21 @@ CSS TABLE OF CONTENTS
     --color-siteheader-background: transparent;
     --color-siteheader-links: var(--color-text-headings);
 
-    --color-hero-background: rgb(34, 92, 186);
+    --color-hero-background: rgb(172, 172, 172);
     --color-hero-text: rgb(255 255 255 / .8);
     --color-hero-headings: rgb(255 255 255 / 1);
 
-    --color-sitefooter-background: rgb(100 100 100);
+    --color-sitefooter-background: #998D6F;
     --color-sitefooter-text: rgb(255 255 255 / .8);
     --color-sitefooter-headings: rgb(255 255 255 / 1);
     --color-sitefooter-links: rgb(255 255 255);
 
     /*  DEFINE ALL FONTS USED HERE */
-    --font-body: 'acumin-pro', Helvetica, Arial, sans-serif;
-    --font-headings: 'kepler-std-display', Georgia, 'Times New Roman', Times, serif;
+    --font-body: sofia-pro, sans-serif;
+    --font-headings: instrument-serif, sans-serif;
+    --font-h3: baskerville-urw, serif;
+    --font-h5: courier-std, monospace;
+    --font-site-menu: courier-std, monospace;
 
     /* SIZING UNITS */
     --container-width: 1100px;
@@ -131,21 +134,35 @@ body {
     /* SET THE FONT FOR ALL MAIN BODY TEXT */
     font-family: var(--font-body);
 
+
     /* SET THE LEADING (LINE-HEIGHT) FOR ALL BODY TEXT */
     line-height: 1.4;
 
 }
 
 /* SET THE FONT FAMILY AND MARGINS FOR ALL HEADINGS */
-h1, h2, h3 {
+h1, h2 {
     font-family: var(--font-headings);
     margin: .4em 0;
+}
+
+h3 {
+    font-family: var(--font-h3);
+}
+
+h5 {
+    font-family: var(--font-h5);
+    text-transform: uppercase;
 }
 
 /* SET H1 FONT SIZE AND LEADING */
 h1 {
     font-size: 3em;
     line-height: 1.1;
+}
+
+.h1-center {
+    text-align: center;
 }
 
 /* SET H2 FONT SIZE AND LEADING */
@@ -385,9 +402,8 @@ body {
 
     /* SET TOGGLE MENU COLORS */
     --color-togglemenu-text: white;
-    --color-togglemenu-background: black;
-
-
+    --color-togglemenu-background: #C9B88D;
+    font-family: var(--font-site-menu);
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -594,32 +610,93 @@ section {
 
 /* BUTTONS */
 
-.button {
+/* .button { */
     /* SET THE BUTTON COLORS */
-    border: 1px solid var(--color-links-dark);
+    /* border: 1px solid var(--color-links-dark);
     background-color: var(--color-links-dark);
-    color: white;
+    color: white; */
 
     /* ENABLE BOX MODEL STYLING */
-    display: inline-block;
+    /* display: inline-block;
     padding: var(--unit-small);
-    margin: var(--unit-small) 0;
+    margin: var(--unit-small) 0; */
 
     /* GET RID OF THE UNDERLINE */
-    text-decoration: none;
+    /* text-decoration: none; */
 
-    + .button {
+    /* + .button {
         margin-left: var(--unit-small);
-    }
+    } */
 
-    &:hover {
+    /* &:hover {
         color: #fff;
         background-color: var(--color-links-darker);
         border-color: var(--color-links-darker);
-    }
+    } */
+
+    /* CODEPEN BUTTON EFFECT */
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+}
+
+.button {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+	overflow: hidden;
+  width: 200px;
+	padding: 1rem 0;
+	position: relative;
+	z-index: 0;
+  margin: 0 .5rem;
+}
+
+.button1 {
+	border: solid #6E7555;
+}
+a {
+	text-decoration: none;
+    text-transform: uppercase;
+	font-family: var(--font-h5);
+	transition: color 650ms ease-in-out;
+}
+.a1 {
+  color: #6E7555;
+}
+.a1:before {
+  background: #6E7555;
+}
+a:before {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: -1;
+	border-radius: 50%;
+	transition: all 500ms ease-in-out;
+}
+a:hover {
+	cursor: pointer;
+	color: white;
+}
+a:hover:before { 
+	content: "";
+	width: 250px;
+	height: 250px;
+	left: -13%;
+	top: -150%;
+	transition: all 500ms ease-in-out;
+}
 
     /* LIGHT BUTTON VARIANT */
-    &.light {
+    /* &.light {
         border-color: var(--color-links-light);
         background-color: var(--color-links-light);
         color: var(--color-links-darker);
@@ -629,9 +706,9 @@ section {
             background-color: var(--color-links-lighter);
         }
 
-    }
+    } */
 
-}
+
 
 /* CENTERED CARDS */
 .centered-card-group {
@@ -639,14 +716,14 @@ section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--unit-small);
+    gap: var(--unit-medium);
 
     .centered-card {
         border: 1px solid #ccc;
         border-radius: 10px;
         padding: var(--unit-small);
         /* min-width: 200px; */
-        max-width: 200px;
+        max-width: 250px;
     }
 
 }
@@ -755,5 +832,14 @@ html {
 
 /* CUSTOM COLOR SECTIONS */
 .bg-lightgrey {
-    background-color: #efefef;
+    height: 110vh;
+    background-image: url("../img/favebg.png");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.white {
+    color: white;
 }
