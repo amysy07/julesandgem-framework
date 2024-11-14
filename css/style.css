@@ -39,6 +39,8 @@ CSS TABLE OF CONTENTS
 
 # CUSTOM STYLING
     # SECTION COLORS
+    # SUB PAGE STYLING
+        # HOME PAGE
 
 --------------------------------
 --------------------------------
@@ -157,7 +159,7 @@ h5 {
 
 /* SET H1 FONT SIZE AND LEADING */
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     line-height: 1.1;
 }
 
@@ -843,3 +845,76 @@ html {
 .white {
     color: white;
 }
+
+/* PAGE SPECFIC STYLING */
+/* HOME PAGE */
+
+.page-home {
+    .heroimage {
+        text-align: center;
+        animation: candleimageshrink 3s forwards 0s;
+    }
+
+    .parting-flowers {
+        position: relative;
+
+        &:before {
+            content: "left";
+            width: 50%;
+            height: 100%;
+            background-color: yellow;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+            animation: partingflowersleft 0s forwards 0;
+            display: block;
+        }
+
+        &:after {
+            content: "right";
+            width: 50%;
+            height: 100%;
+            background-color: pink;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 50;
+        }
+    }
+}
+
+@keyframes candleimageshrink {
+    0% {
+        scale: 1.3;
+        opacity: 0;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes partingflowersleft {
+    0% {
+        /* translate: 0 0; */
+        opacity: 0;
+
+    }
+    100% {
+        /* translate: -100% 0;
+        background-color: red; */
+        opacity: 1;
+    }
+}
+
+/* ABOUT PAGE */
+
+.about-image {
+    height: 110vh;
+    background-image: url("../img/aboutbg.png");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
