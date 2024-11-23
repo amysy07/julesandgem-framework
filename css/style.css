@@ -857,6 +857,10 @@ html {
 
     .parting-flowers {
         position: relative;
+        overflow: hidden;
+        .observe-me:has(.h1-center) {
+        background: transition-delay 2s;
+    }
 
         &:before {
             content: "left";
@@ -867,8 +871,7 @@ html {
             top: 0;
             left: 0;
             z-index: 50;
-            animation: partingflowersleft 0s forwards 0;
-            display: block;
+            animation: partingflowersleft 2s ease-out forwards;
         }
 
         &:after {
@@ -880,6 +883,7 @@ html {
             top: 0;
             right: 0;
             z-index: 50;
+            animation: partingflowersright 2s ease-out forwards;
         }
     }
 }
@@ -896,25 +900,32 @@ html {
 }
 
 @keyframes partingflowersleft {
-    0% {
-        /* translate: 0 0; */
-        opacity: 0;
+    0% { translate: 0 0; }
+    100% { translate: -100% 0; }
+}
 
-    }
-    100% {
-        /* translate: -100% 0;
-        background-color: red; */
-        opacity: 1;
-    }
+@keyframes partingflowersright {
+    0% { translate: 0 0; }
+    100% { translate: 100% 0; }
 }
 
 /* ABOUT PAGE */
 
 .about-image {
-    height: 110vh;
+    height: 80vh;
     background-image: url("../img/aboutbg.png");
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
 }
 
+
+/* SHOP PAGE */
+
+.shop-image {
+    height: 80vh;
+    background-image: url("../img/shopbg.jpg");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
